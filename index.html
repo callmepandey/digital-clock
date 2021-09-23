@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=Press Start 2P' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
+        <title>
+            Digital Clock 
+        </title>
+        <style>
+            body{
+                background-color: black;
+            }
+            .whole{
+                position: absolute;
+                color:green;
+                top: 30%;
+                left: 30%;
+            }
+            .Clock{
+                font-size: 82px;
+                font-family: 'Bungee';
+            }
+            .Date{
+                font-size: 35px;
+                font-family: 'Bungee';
+            }
+        </style>
+    </head>
+    <body>
+        <div id = "whole" class="whole">
+        <div id = "Clock" class="Clock">
+        </div>
+        <script type="text/javascript">
+        function updateTime(){
+            var date = new Date();
+            var hour = date.getHours();
+            var minute = date.getMinutes();
+            var second = date.getSeconds();
+            var meridian = "AM";
+            if(hour >= 12){
+                meridian = "PM";
+                if(hour > 12)
+                    hour = hour - 12;
+            } else {
+                if(hour == 0)
+                    hour = hour + 12;
+            }
+            if(hour < 10)
+                hour = "0" + hour;
+            if(minute < 10)
+                minute = "0" + minute;
+            if(second < 10)
+                second = "0" + second;
+
+            document.getElementById("Clock").innerHTML = hour + " : " + minute + " : " + second + " " + meridian;
+            setTimeout(updateTime , 1000);
+        }
+        updateTime();
+        </script>
+        <div id = "Date" class="Date"></div>
+        <script type="text/javascript">
+            var date = new Date();
+            var year = date.getFullYear();
+            var mon = date.getMonth();
+            var today = date.getDate();
+            mon += 1;
+            var month = "None";
+            switch(mon){
+                case 1 : month = "January" ;
+                break;
+                case 2 : month = "February" ;
+                break;
+                case 3 : month = "March" ;
+                break;
+                case 4 : month = "April" ;
+                break;
+                case 5 : month = "May" ;
+                break;
+                case 6 : month = "June" ;
+                break;
+                case 7 : month = "July" ;
+                break;
+                case 8 : month = "August" ;
+                break;
+                case 9 : month = "September" ;
+                break;
+                case 10 : month = "October" ;
+                break;
+                case 11 : month = "November" ;
+                break;
+                case 12 : month = "December" ;
+                break;
+            }
+            var day = "None";
+            var curr = date.getDay();
+            if(curr == 1){
+                day = "Monday";
+            } else if(curr==2){
+                day = "Tuesday";
+            } else if(curr==3){
+                day = "Wednesday";
+            } else if(curr==4){
+                day = "Thursday";
+            } else if(curr==5){
+                day = "Friday";
+            } else if(day==6){
+                day = "Saturday";
+            } else {
+                day = "Sunday";
+            }
+            document.getElementById("Date").innerHTML = today + " " + month + " " + year + " : " + day;
+            
+        </script>
+        </div>
+    </body>
+</html>
