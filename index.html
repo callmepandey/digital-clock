@@ -92,7 +92,6 @@
             }
             var day = "None";
             var curr = date.getDay();
-            curr += 1;
             if(curr == 1){
                 day = "Monday";
             } else if(curr==2){
@@ -103,7 +102,7 @@
                 day = "Thursday";
             } else if(curr==5){
                 day = "Friday";
-            } else if(day==6){
+            } else if(curr==6){
                 day = "Saturday";
             } else {
                 day = "Sunday";
