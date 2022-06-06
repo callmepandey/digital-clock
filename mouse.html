@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript - Mouse Position</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <p id="position">Test</p>
+
+        <script>
+            
+            document.addEventListener("mousemove",function(event){
+                
+                var x = event.clientX;
+                var y = event.clientY;
+                
+                document.getElementById('position').innerHTML = " X = "+ x +"][ Y = "+ y;
+                
+            });
+            
+        </script>
+
+    </body>
+</html>
